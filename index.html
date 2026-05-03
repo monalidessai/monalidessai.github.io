@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Monali Mangaldas Dessai — AI/ML Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f7f5f2;
+      --surface: #ffffff;
+      --dark: #1a1a2e;
+      --accent: #534AB7;
+      --accent2: #1D9E75;
+      --muted: #6b6b7b;
+      --border: #e2e0f0;
+      --mono: 'Space Mono', monospace;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      font-family: var(--sans);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 48px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--surface);
+      padding: 72px 48px 60px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: #E1F5EE;
+      border: 1px solid #9FE1CB;
+      border-radius: 20px;
+      padding: 5px 14px;
+      margin-bottom: 22px;
+    }
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+    .subtitle {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    .hero-desc {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .btn {
+      padding: 11px 22px;
+      border-radius: 7px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .btn-primary { background: var(--accent); color: #fff; border: none; }
+    .btn-primary:hover { background: #3C3489; transform: translateY(-1px); }
+    .btn-ghost { background: transparent; color: var(--dark); border: 1.5px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 4px 11px;
+      border-radius: 4px;
+      background: #EEEDFE;
+      color: #534AB7;
+      border: 1px solid #AFA9EC;
+    }
+    .hero-avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: #EEEDFE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      font-weight: 700;
+      color: #534AB7;
+      border: 3px solid var(--border);
+      flex-shrink: 0;
+      font-family: var(--mono);
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      padding: 56px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 32px;
+    }
+    .section-num {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      background: #EEEDFE;
+      border: 1px solid #AFA9EC;
+      border-radius: 4px;
+      padding: 3px 9px;
+    }
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px 26px;
+      margin-bottom: 14px;
+      border-left: 3px solid var(--accent);
+    }
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+    .exp-role { font-size: 16px; font-weight: 700; color: var(--dark); }
+    .exp-date {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      background: var(--bg);
+      padding: 3px 9px;
+      border-radius: 4px;
+    }
+    .exp-company {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .exp-points { list-style: none; }
+    .exp-points li {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      padding: 3px 0 3px 16px;
+      position: relative;
+    }
+    .exp-points li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-size: 11px;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .proj-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    .proj-type {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--accent2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .proj-name { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .proj-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      font-family: var(--mono);
+      font-size: 9px;
+      padding: 3px 8px;
+      border-radius: 3px;
+      background: #EEEDFE;
+      color: #534AB7;
+      border: 1px solid #AFA9EC;
+    }
+    .tag.teal { background: #E1F5EE; color: #0F6E56; border-color: #5DCAA5; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 14px;
+    }
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .skill-group-title {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-pill {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 5px;
+      background: var(--bg);
+      color: var(--dark);
+      border: 1px solid var(--border);
+    }
+
+    /* ── AWARDS ── */
+    .awards-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .award-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      border-top: 3px solid var(--accent2);
+    }
+    .award-name { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .award-desc { font-size: 12px; color: var(--muted); line-height: 1.65; }
+
+    /* ── CURRICULAR ── */
+    .curricular-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .curr-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+    }
+    .curr-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 5px; }
+    .curr-desc { font-size: 12px; color: var(--muted); line-height: 1.65; }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+    .contact-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .contact-item:hover { border-color: var(--accent); }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: #EEEDFE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: #534AB7;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .contact-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .contact-val { font-size: 13px; color: var(--dark); font-weight: 500; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 28px 48px;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-text { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+    .footer-accent { color: var(--accent); font-weight: 700; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 16px 20px; }
+      .nav-links { gap: 18px; }
+      .hero { padding: 48px 20px 40px; grid-template-columns: 1fr; }
+      .hero-avatar { display: none; }
+      .section { padding: 40px 20px; }
+      footer { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">monali.dessai</div>
+    <ul class="nav-links">
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="availability"><div class="dot"></div>open to opportunities</div>
+      <h1>Monali Mangaldas<br>Dessai</h1>
+      <div class="subtitle">AI/ML Engineer &amp; Full-Stack Developer</div>
+      <p class="hero-desc">
+        B.E. Computer Engineering student specialising in Artificial Intelligence &amp; Machine Learning (CGPA 8.5) at Don Bosco College of Engineering, Goa. Building intelligent, production-ready systems — from stock market prediction to rental management platforms.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://linkedin.com/in/monali-on-dessai" target="_blank">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/monaliddessai" target="_blank">GitHub</a>
+        <a class="btn btn-ghost" href="mailto:monaliddessai2005@gmail.com">Email me</a>
+      </div>
+      <div class="contact-chips">
+        <span class="chip">+91 9822849078</span>
+        <span class="chip">Goa, India</span>
+        <span class="chip">CGPA 8.5 — Don Bosco COE</span>
+        <span class="chip">Expected Jun 2027</span>
+      </div>
+    </div>
+    <div class="hero-avatar">MD</div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section" id="experience">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Experience</span>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-top">
+        <div class="exp-role">AI Intern — Lenovo Leap: NextGen Scholar Program</div>
+        <div class="exp-date">May 2025 – Jul 2025</div>
+      </div>
+      <div class="exp-company">BharatCares &amp; Lenovo · Goa, India</div>
+      <ul class="exp-points">
+        <li>Completed a competitive AI internship under BharatCares &amp; Lenovo, earning certifications in Artificial Intelligence, Machine Learning Fundamentals, and Botpress Chatbot Development.</li>
+        <li>Developed "MoodMate", an SDG-3 aligned mood-tracking chatbot using Python (Flask) and JavaScript.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-top">
+        <div class="exp-role">AI/ML Intern (Virtual) — AICTE Google AI-ML</div>
+        <div class="exp-date">Jul 2024 – Sept 2024</div>
+      </div>
+      <div class="exp-company">AICTE Intern (B4Skills) · Goa, India</div>
+      <ul class="exp-points">
+        <li>Completed a 10-week AI/ML internship by AICTE &amp; Google, gaining hands-on experience in core AI &amp; ML concepts and practical model development.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section" id="projects">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Projects</span>
+    </div>
+    <div class="projects-grid">
+
+      <div class="proj-card">
+        <div class="proj-type">JavaScript · Deployed on Vercel</div>
+        <div class="proj-name">Stock Price Tracker</div>
+        <div class="proj-desc">A real-time stock & crypto tracker built with vanilla JavaScript. Search any symbol (AAPL, TSLA, BTC), view live price, % change, and an interactive Chart.js price chart. Deployed on Vercel with a clean responsive UI.</div>
+        <div class="tags">
+          <span class="tag">JavaScript</span><span class="tag">Chart.js</span><span class="tag teal">Alpha Vantage API</span><span class="tag teal">Vercel</span><span class="tag">HTML/CSS</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-type">Backend Developer</div>
+        <div class="proj-name">Stock Market API</div>
+        <div class="proj-desc">Retail investors require a secure backend to efficiently manage stock data and user authentication. Built a RESTful API with JWT-based auth, protected CRUD operations, and PostgreSQL with SQLite + Swagger UI for documentation.</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">SQLite</span><span class="tag">JWT</span><span class="tag teal">Unicorn</span><span class="tag teal">Swagger</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-type">Full-Stack · Team Lead</div>
+        <div class="proj-name">Car Rental Management System</div>
+        <div class="proj-desc">Led a team of 2 to build an automated car rental platform. Reduced booking confirmation time from 2 hours to under 10 minutes, cut booking conflicts by 40%, and optimised MySQL admin dashboard with vehicle &amp; fleet utilisation tracking (35% improvement).</div>
+        <div class="tags">
+          <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag teal">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-type">Data Science · Developer</div>
+        <div class="proj-name">Sales Forecasting &amp; Data Analytics</div>
+        <div class="proj-desc">Built sales forecasting system using regression models in Scikit-learn, improving prediction accuracy by 20%. Performed data cleaning, EDA, and visualisation to identify trends and support data-driven decision-making.</div>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag teal">Scikit-learn</span><span class="tag">Matplotlib</span><span class="tag teal">Plotly</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-type">JavaScript · Deployed on Vercel</div>
+        <div class="proj-name">Weather App</div>
+        <div class="proj-desc">A live weather application that fetches real-time data from a public weather API and displays temperature, humidity, wind speed, and forecasts by city. Fully deployed on Vercel with a clean, responsive UI.</div>
+        <div class="tags">
+          <span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag teal">REST API</span><span class="tag teal">Vercel</span>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-type">Case Study</div>
+        <div class="proj-name">Scalable Backend Prototype (Ed-Tech)</div>
+        <div class="proj-desc">Designed a scalable backend prototype for ed-tech learning platforms requiring secure login and stock data handling. Implemented modular architecture with SQLite, Swagger UI, and RESTful design patterns.</div>
+        <div class="tags">
+          <span class="tag">RESTful API</span><span class="tag">Swagger</span><span class="tag teal">Backend Design</span><span class="tag">SQLite</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section" id="skills">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Skills &amp; Technologies</span>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">Languages</div>
+        <div class="skill-list">
+          <span class="skill-pill">Python</span><span class="skill-pill">Java</span><span class="skill-pill">JavaScript</span><span class="skill-pill">C/C++</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Frameworks &amp; Tools</div>
+        <div class="skill-list">
+          <span class="skill-pill">React.js</span><span class="skill-pill">Node.js</span><span class="skill-pill">FastAPI</span><span class="skill-pill">Flask</span><span class="skill-pill">PyTorch</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">AI / ML</div>
+        <div class="skill-list">
+          <span class="skill-pill">LLMs</span><span class="skill-pill">Neural Networks</span><span class="skill-pill">Prompt Engineering</span><span class="skill-pill">EDA</span><span class="skill-pill">Predictive Modelling</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Data &amp; Databases</div>
+        <div class="skill-list">
+          <span class="skill-pill">PostgreSQL</span><span class="skill-pill">MySQL</span><span class="skill-pill">SQLite</span><span class="skill-pill">Statistical Analysis</span><span class="skill-pill">REST API Design</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Dev Tools</div>
+        <div class="skill-list">
+          <span class="skill-pill">Git/GitHub</span><span class="skill-pill">Swagger UI</span><span class="skill-pill">LaTeX</span><span class="skill-pill">Botpress</span><span class="skill-pill">Chatbot Dev</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Soft Skills</div>
+        <div class="skill-list">
+          <span class="skill-pill">Problem Solving</span><span class="skill-pill">Team Leadership</span><span class="skill-pill">Communication</span><span class="skill-pill">Engineering Ethics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AWARDS -->
+  <div class="section" id="awards">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Awards &amp; Certifications</span>
+    </div>
+    <div class="awards-list">
+      <div class="award-card">
+        <div class="award-name">NPTEL — The Joy of Computing using Python</div>
+        <div class="award-desc">Soft Skills, Ethics in Engineering Practice, Data Analytics with Python, and Introduction to Industry 4.0 &amp; Industrial IoT.</div>
+      </div>
+      <div class="award-card">
+        <div class="award-name">The Complete Web Development Bootcamp</div>
+        <div class="award-desc">Full-stack web development certification covering modern HTML, CSS, JS, Node.js, and databases.</div>
+      </div>
+      <div class="award-card">
+        <div class="award-name">100 Days of Code: Python Pro Bootcamp</div>
+        <div class="award-desc">Complete Python Pro Bootcamp by Dr. Angela Yu — covering automation, data science, and web development with Python.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CURRICULAR ACTIVITIES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Curricular Activities</span>
+    </div>
+    <div class="curricular-list">
+      <div class="curr-card">
+        <div class="curr-title">Technical Seminars</div>
+        <div class="curr-desc">Actively engaged in AI/ML and predictive analytics seminars, presenting on forecasting models and scalable backend systems.</div>
+      </div>
+      <div class="curr-card">
+        <div class="curr-title">Collaborative Development</div>
+        <div class="curr-desc">Led academic initiatives in full-stack development, implementing data-driven features and optimising database schemas.</div>
+      </div>
+      <div class="curr-card">
+        <div class="curr-title">Applied AI/ML</div>
+        <div class="curr-desc">Completed industry-recognised certifications; applied supervised and unsupervised learning techniques across real-world datasets.</div>
+      </div>
+      <div class="curr-card">
+        <div class="curr-title">Leadership &amp; Volunteering</div>
+        <div class="curr-desc">Served as technical volunteer for departmental events, coordinating peer-led coding sessions and strengthening teamwork.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="section" id="contact">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <span class="section-title">Get In Touch</span>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:monaliddessai2005@gmail.com">
+        <div class="contact-icon">@</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-val">monaliddessai2005@gmail.com</div>
+        </div>
+      </a>
+      <a class="contact-item" href="https://linkedin.com/in/monali-on-dessai" target="_blank">
+        <div class="contact-icon">in</div>
+        <div>
+          <div class="contact-label">LinkedIn</div>
+          <div class="contact-val">linkedin.com/in/monali-on-dessai</div>
+        </div>
+      </a>
+      <a class="contact-item" href="https://github.com/monaliddessai" target="_blank">
+        <div class="contact-icon">gh</div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-val">github.com/monaliddessai</div>
+        </div>
+      </a>
+      <div class="contact-item">
+        <div class="contact-icon">tel</div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-val">+91 9822849078</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-text">Designed &amp; built for <span class="footer-accent">Monali Mangaldas Dessai</span></span>
+    <span class="footer-text">Goa, India · 2026</span>
+  </footer>
+
+</body>
+</html>
